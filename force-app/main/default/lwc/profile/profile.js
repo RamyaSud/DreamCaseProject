@@ -21,7 +21,7 @@ caseId = ''
     @wire(getRecord,{recordId:'$userId',fields:[CONTACT_ID]})
     User({data,error}){
         if(data){
-            console.log(JSON.stringify(data))
+            //console.log(JSON.stringify(data))
             this.contactId = data.fields.ContactId.value
         }
         else if(error){
