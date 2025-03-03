@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Apex code by Jessie Rymph for AppExchange</description>
+        <name>YearEnd_CampaignTable</name>
+        <label>YearEnd CampaignTable</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <actionName>yearEndCampaignTable</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>yearEndCampaignTable</nameSegment>
+    </actionCalls>
+    <apiVersion>56.0</apiVersion>
+    <description>This flow creates a table in the field Gifts Last Year on the contact record including Date, Amount and Campaign Name. By Jessie Rymph for AppExchange. Part of an unmanaged package. https://wp.me/p9qPLI-1q8</description>
+    <environments>Default</environments>
+    <interviewLabel>Year End Tax Flow with Campaign Table {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Year End Tax Flow with Campaign Table</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>YearEnd_CampaignTable</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+</Flow>

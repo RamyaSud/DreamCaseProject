@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <assignments>
+        <name>Assign_flow_current_stage</name>
+        <label>Assign flow current stage</label>
+        <locationX>50</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>$Flow.CurrentStage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Wait_List</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Case_Status_screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_flow_current_stage_as_Booked_and_waiting_for_travel</name>
+        <label>Assign flow current stage as Booked and waiting for travel</label>
+        <locationX>1370</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>$Flow.CurrentStage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Booked_and_waiting_for_travel</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Case_Status_screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_flow_current_stage_as_Completed_dream</name>
+        <label>Assign flow current stage as Completed dream</label>
+        <locationX>1634</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>$Flow.CurrentStage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>completed_dream</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Case_Status_screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_flow_current_stage_as_GKTW</name>
+        <label>Assign flow current stage as GKTW</label>
+        <locationX>1898</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>$Flow.CurrentStage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Give_Kids_the_World</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Case_Status_screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_flow_current_stage_as_Information_missing</name>
+        <label>Assign flow current stage as &apos;Information missing&apos;</label>
+        <locationX>314</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>$Flow.CurrentStage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Information_missing</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Case_Status_screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_flow_current_stage_as_Ready_for_Board_Approval</name>
+        <label>Assign flow current stage as Ready for Board Approval</label>
+        <locationX>842</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>$Flow.CurrentStage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Ready_for_Board_Approval</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Case_Status_screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_flow_current_stage_Pending_Travel_Booking</name>
+        <label>Assign flow current stage Pending Travel Booking</label>
+        <locationX>1106</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>$Flow.CurrentStage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Pending_Travel_Booking</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Case_Status_screen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_flow_current_stage_Ready_for_interview</name>
+        <label>Assign flow current stage &apos;Ready for interview&apos;</label>
+        <locationX>578</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>$Flow.CurrentStage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Ready_for_interview</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Case_Status_screen</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Check_case_status</name>
+        <label>Check case status</label>
+        <locationX>1106</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>Case_Status_screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Waitlist</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Related_Case_record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Wait List</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_flow_current_stage</targetReference>
+            </connector>
+            <label>Wait List?</label>
+        </rules>
+        <rules>
+            <name>InformationMissing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Related_Case_record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Information missing</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_flow_current_stage_as_Information_missing</targetReference>
+            </connector>
+            <label>Information missing</label>
+        </rules>
+        <rules>
+            <name>ReadyForInterview</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Related_Case_record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ready for interview</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_flow_current_stage_Ready_for_interview</targetReference>
+            </connector>
+            <label>Ready for Interview</label>
+        </rules>
+        <rules>
+            <name>ReadyForBoardApproval</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Related_Case_record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ready for Board Approval</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_flow_current_stage_as_Ready_for_Board_Approval</targetReference>
+            </connector>
+            <label>Ready for Board Approval</label>
+        </rules>
+        <rules>
+            <name>PendingTravelBooking</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Related_Case_record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending Travel Booking</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_flow_current_stage_Pending_Travel_Booking</targetReference>
+            </connector>
+            <label>Pending Travel Booking</label>
+        </rules>
+        <rules>
+            <name>BookedWaitingForTravel</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Related_Case_record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Booked and waiting for travel</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_flow_current_stage_as_Booked_and_waiting_for_travel</targetReference>
+            </connector>
+            <label>Booked and waiting for travel</label>
+        </rules>
+        <rules>
+            <name>CompletedDream</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Related_Case_record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>completed dream</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Related_Case_record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Survey Sent</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_flow_current_stage_as_Completed_dream</targetReference>
+            </connector>
+            <label>completed dream</label>
+        </rules>
+        <rules>
+            <name>GiveKidsTheWorld</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Related_Case_record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Give Kids the World</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_flow_current_stage_as_GKTW</targetReference>
+            </connector>
+            <label>Give kids the world</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>DCM Portal - Standard Case object Status Path {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>DCM Portal - Standard Case object Status Path</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <description>Get logged in external user&apos;s contact record</description>
+        <name>Get_Logged_in_User_Contact_Record</name>
+        <label>Get Logged in User Contact Record</label>
+        <locationX>1106</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Related_Case_record</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$User.ContactId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Related_Case_record</name>
+        <label>Get Related Case record</label>
+        <locationX>1106</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_case_status</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Logged_in_User_Contact_Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <screens>
+        <name>Case_Status_screen</name>
+        <label>Case Status screen</label>
+        <locationX>1106</locationX>
+        <locationY>650</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>case_status</name>
+            <fieldText>&lt;p&gt;﻿&lt;strong&gt; Status : &lt;/strong&gt;{!Get_Related_Case_record.Status}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>caseStatus</name>
+            <extensionName>c:flowPathComponent</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>stages</name>
+                <value>
+                    <elementReference>$Flow.ActiveStages</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>currentStage</name>
+                <value>
+                    <elementReference>$Flow.CurrentStage</elementReference>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>false</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <stages>
+        <name>Booked_and_waiting_for_travel</name>
+        <isActive>true</isActive>
+        <label>Booked and waiting for travel</label>
+        <stageOrder>11</stageOrder>
+    </stages>
+    <stages>
+        <name>completed_dream</name>
+        <isActive>true</isActive>
+        <label>completed dream</label>
+        <stageOrder>13</stageOrder>
+    </stages>
+    <stages>
+        <name>Give_Kids_the_World</name>
+        <isActive>true</isActive>
+        <label>Give Kids the World</label>
+        <stageOrder>6</stageOrder>
+    </stages>
+    <stages>
+        <name>Information_missing</name>
+        <isActive>true</isActive>
+        <label>Information missing</label>
+        <stageOrder>3</stageOrder>
+    </stages>
+    <stages>
+        <name>Pending_Travel_Booking</name>
+        <isActive>true</isActive>
+        <label>Pending Travel Booking</label>
+        <stageOrder>9</stageOrder>
+    </stages>
+    <stages>
+        <name>Ready_for_Board_Approval</name>
+        <isActive>true</isActive>
+        <label>Ready for Board Approval</label>
+        <stageOrder>7</stageOrder>
+    </stages>
+    <stages>
+        <name>Ready_for_interview</name>
+        <isActive>true</isActive>
+        <label>Ready for interview</label>
+        <stageOrder>5</stageOrder>
+    </stages>
+    <stages>
+        <description>stages of case status</description>
+        <name>Wait_List</name>
+        <isActive>true</isActive>
+        <label>Wait List</label>
+        <stageOrder>1</stageOrder>
+    </stages>
+    <start>
+        <locationX>980</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Logged_in_User_Contact_Record</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+</Flow>

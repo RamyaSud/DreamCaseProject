@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Year_End_Tax_Receipt_Email</name>
+        <label>Send &apos;Year End Tax Receipt&apos; Email</label>
+        <locationX>138</locationX>
+        <locationY>458</locationY>
+        <actionName>Contact.Year_End_Tax_Receipt_Email_alert</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Selected_contacts_List</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>Selected_contacts_List.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Contact.Year_End_Tax_Receipt_Email_alert</nameSegment>
+    </actionCalls>
+    <apiVersion>58.0</apiVersion>
+    <decisions>
+        <name>Check_contacts_available_to_email</name>
+        <label>Check contacts available to email</label>
+        <locationX>182</locationX>
+        <locationY>242</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_contact_Records_to_Email_Tax_Receipt</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Selected_contacts_List</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>Email the &apos;Year End Tax Receipt to contacts whose &apos;Total Gift Last Year &gt; 0&apos;</description>
+    <environments>Default</environments>
+    <interviewLabel>Email Year End Tax Receipt to Contacts Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Email Year End Tax Receipt to Contacts Flow</label>
+    <loops>
+        <name>Selected_contacts_List</name>
+        <label>Selected contacts List</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <collectionReference>Get_contact_Records_to_Email_Tax_Receipt</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Send_Year_End_Tax_Receipt_Email</targetReference>
+        </nextValueConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <description>Collect the contacts if Total gift last year &gt; 0</description>
+        <name>Get_contact_Records_to_Email_Tax_Receipt</name>
+        <label>Get contact Records to Email Tax Receipt</label>
+        <locationX>182</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_contacts_available_to_email</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Is_Tax_Receipt_Available__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_contact_Records_to_Email_Tax_Receipt</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+</Flow>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Automated_Survey</name>
+        <label>Automated Survey</label>
+        <locationX>308</locationX>
+        <locationY>384</locationY>
+        <actionName>Case.Dream_Case_Survey_Email_Alert</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.Dream_Case_Survey_Email_Alert</nameSegment>
+    </actionCalls>
+    <apiVersion>62.0</apiVersion>
+    <assignments>
+        <description>Set the SubjectId to the CaseId and the ContactId to the Case&apos;s primary contact.</description>
+        <name>Set_SubjectId_and_ContactId</name>
+        <label>Set SubjectId and ContactId</label>
+        <locationX>308</locationX>
+        <locationY>276</locationY>
+        <assignmentItems>
+            <assignToReference>ContactId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.ContactId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>SubjectId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Automated_Survey</targetReference>
+        </connector>
+    </assignments>
+    <description>Sends an automated survey via email alert once dream is complete, and creates associated records required to support.</description>
+    <environments>Default</environments>
+    <interviewLabel>Dream Complete Survey {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Dream Complete Survey</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>completed dream</stringValue>
+            </value>
+        </filters>
+        <object>Case</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <scheduledPaths>
+            <name>X7_Days_After_Dream_Complete</name>
+            <connector>
+                <targetReference>Set_SubjectId_and_ContactId</targetReference>
+            </connector>
+            <label>7 Days After Dream Complete</label>
+            <offsetNumber>7</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <timeSource>RecordTriggerEvent</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>The related contact on the case record that triggered the flow.</description>
+        <name>ContactId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <elementReference>$Record.ContactId</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <description>The record Id for the case that initiates the flow.</description>
+        <name>SubjectId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <elementReference>$Record.Id</elementReference>
+        </value>
+    </variables>
+</Flow>
