@@ -1,0 +1,17 @@
+Dear Parent/Guardian of {!Case.Child_First_Name__c} {!Case.Child_Last_Name__c},
+
+I hope this message finds you and your family well. My name is {!Case.OwnerFullName}, and I am a volunteer with the Dream Factory of Brooklyn. We are delighted to inform you that we have received {!Case.Child_First_Name__c} {!Case.Child_Last_Name__c}’s dream request and are excited to take the next steps in making this dream a reality.
+
+To ensure we have all the details necessary to create a truly memorable experience for {!Case.Child_First_Name__c} {!Case.Child_Last_Name__c}, we would like to schedule a brief interview with you and {!Case.Child_First_Name__c} {!Case.Child_Last_Name__c}. This interview will help us understand more about {!Case.Child_First_Name__c} {!Case.Child_Last_Name__c}'s interests, preferences, and any specific details that will make this dream as special as possible.
+
+Please let us know your availability over the next couple of weeks, and we will do our best to accommodate your schedule. We can conduct the interview either in person, via phone, or through a video call, depending on what is most convenient for you.
+
+Thank you for allowing us the opportunity to bring a smile to {!Case.Child_First_Name__c} {!Case.Child_Last_Name__c}’s face. We look forward to working with you and creating an unforgettable experience for your family.
+
+Warm regards,
+
+{!Case.OwnerFullName}
+{!Case.OwnerTitle}
+Dream Factory of Brooklyn  
+{!Case.OwnerEmail}
+[Website URL]

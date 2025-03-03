@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>YearEndTaxSend</name>
+    <style>none</style>
+    <subject>thank you for your donations last year</subject>
+    <textOnly>Dear {!Contact.FirstName},
+
+
+Thank you for your generous donations of {!Contact.npo02__OppAmountLastYear__c} to {!Organization.Name} last year. Your support helps us grant dreams to critically and chronically ill children from the ages of three through eighteen.
+
+
+As a registered nonprofit organization, we want to ensure that you receive a receipt for tax purposes. Below, you will find the details of your donation:
+
+
+Itemized list of your gifts: {!Contact.Gifts_Last_Year__c}
+
+Total: {!Contact.npo02__OppAmountLastYear__c}
+
+
+We are truly grateful for your commitment to our mission. Your generosity enables us to make a meaningful difference in the lives of these children and their families.
+
+
+As we embark on a new year, we want to express our heartfelt appreciation for your continued support. Without donors like you, we would not be able to fulfill our mission and bring joy to those who need it most.
+
+
+If you have any questions or would like further information about our organization and the impact of your donation, please don&apos;t hesitate to reach out to us. We are always available to provide updates and answer any queries you may have.
+
+
+Once again, thank you for your generosity and support. We extend our sincere wishes for a happy new year filled with joy, love, and fulfillment.
+
+
+With gratitude,
+
+
+Everyone at {!Organization.Name}
+
+
+Your donation is tax-deductible to the extent allowed by law. Please consult your tax advisor for further information regarding the deductibility of your donation. EIN: 37-1636860</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

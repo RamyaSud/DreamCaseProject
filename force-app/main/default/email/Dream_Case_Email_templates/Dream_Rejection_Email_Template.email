@@ -1,0 +1,17 @@
+Dear Parent/Guardian of {!Case.Child_First_Name__c} {!Case.Child_Last_Name__c},
+
+Thank you for reaching out to the Dream Factory of Brooklyn and sharing {!Case.Child_First_Name__c} {!Case.Child_Last_Name__c}'s dream with us. We are grateful for the opportunity to learn about {!Case.Child_First_Name__c} {!Case.Child_Last_Name__c} and their hopes and aspirations.
+
+After a thorough review by our chapter and medical team, we regret to inform you that, due to our policies, {!Case.Child_First_Name__c} {!Case.Child_Last_Name__c}'s condition or location does not meet the criteria for a dream to be granted at this time. This decision is based on the guidelines we follow to ensure that we can provide the best possible experiences for children who qualify under our program.
+
+We understand that this news may be disappointing, and we want to express our heartfelt appreciation for your understanding and support during this process. Your effort to advocate for {!Case.Child_First_Name__c} {!Case.Child_Last_Name__c}'s dream is truly commendable, and we are honored to have been a part of their journey, even if only in a small way.
+
+If you have any questions or need further assistance, please do not hesitate to contact us. We are here to help and support you in any way we can.
+
+Thank you once again for your trust in the Dream Factory of Brooklyn. We wish {!Case.Child_First_Name__c} {!Case.Child_Last_Name__c} all the best and hope for their continued strength and resilience.
+
+Warm regards,
+
+{!Case.OwnerFullName} 
+{!Case.OwnerTitle}
+Dream Factory of Brooklyn

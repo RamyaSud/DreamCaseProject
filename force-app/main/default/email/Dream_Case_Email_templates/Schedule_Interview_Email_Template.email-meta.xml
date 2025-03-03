@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Schedule Interview Email Template</name>
+    <style>none</style>
+    <subject>Request for Interview to Review {!Case.Child_First_Name__c} {!Case.Child_Last_Name__c}’s Dream Request</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

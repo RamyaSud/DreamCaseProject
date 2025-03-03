@@ -1,0 +1,18 @@
+Dear Parent/Guardian of {!Case.Child_First_Name__c} {!Case.Child_Last_Name__c}
+
+<p>We hope this message finds you well. At Dream Factory Brooklyn, we are committed to showcasing the incredible impact of our mission through the stories of our past dreamers and their families. Your recent journey, when {!Case.Child_First_Name__c} {!Case.Child_Last_Name__c}'s dream was fulfilled just a week ago, is a cherished part of our history.
+</p>
+<p>We would be deeply honored if you could take a few moments to share your thoughts and experiences with us. Your insights, along with any photos you may wish to include, are invaluable in helping us communicate the values and goals of our organization to a wider audience.
+</p>
+<p>To make this process as easy as possible, we have created a Google Form where you can conveniently share your experience with Dream Factory Brooklyn. You can access the form by clicking the link below:
+</p>
+<a href="https://forms.gle/wBAPYiKjNoCt9n3x9"> Forum Link </a>
+<p>We are genuinely excited to hear from you and learn more about your journey with us. Your contribution will not only inspire others but also help us continue our mission of making dreams come true for children and their families.
+</p>
+<p>Thank you for being an essential part of the Dream Factory Brooklyn family. We look forward to reconnecting with you soon.
+</p>
+<p>Warm regards,</p>
+{!Case.OwnerFullName}</br>
+{!Case.OwnerTitle}</br>
+Dream Factory Brooklyn  </br>
+{!Case.OwnerEmail}

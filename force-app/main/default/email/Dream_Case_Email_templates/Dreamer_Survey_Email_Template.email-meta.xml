@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Dreamer Survey Email Template</name>
+    <style>none</style>
+    <subject>Share Your Dream Experience with Dream Factory Brooklyn!</subject>
+    <textOnly>Dear Parent/Guardian of {!DF_Case__c.Child_Firstname__c} {!DF_Case__c.Child_Last_Name__c}
+
+Dream Factory Brooklyn is embarking on a campaign to highlight the impact of our mission and the incredible stories of past dreamers and their families. We believe that your experience, which began when {!DF_Case__c.Child_Firstname__c} {!DF_Case__c.Child_Last_Name__c} had their dream fulfilled back in{!DF_Case__c.LastModifiedDate}, holds a special place in our journey.
+
+We would be truly honored if you could spare some time to provide us with your thoughts on the entire experience. Your insights and any accompanying images will play a vital role in helping us promote the values and goals of our organization.
+
+To streamline this process, we have created a Google Form where you can conveniently write your experience with Dream Factory Brooklyn. Please follow the link below to access the form:
+
+Forum Link
+
+We genuinely look forward to hearing from you and learning about your journey with us. Your contribution will not only inspire others but also help us continue our mission of making dreams come true for children and their families.
+
+Thank you for being a part of Dream Factory Brooklyn, and we hope to reconnect with you soon.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

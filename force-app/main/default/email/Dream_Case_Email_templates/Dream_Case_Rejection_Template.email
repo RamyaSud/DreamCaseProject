@@ -1,0 +1,14 @@
+Dear Parent/Guardian of  {!Case.Child_First_Name__c} {!Case.Child_Last_Name__c}
+<p> </p>
+
+After review from the chapter, I regret to inform you that {!Case.Child_First_Name__c} !Case.Child_Last_Name__c} dream has not been approved. Our medical team has informed us that due to policies,{!Case.Child_First_Name__c} {!Case.Child_Last_Name__c}'s illness does not medically qualify for a wish to be granted.
+</br>
+<p></p>
+We sincerely appreciate your support and for taking the time to inquire here at Dream Factory Brooklyn.</br>
+<p></p>
+<p></p>
+
+Best Regards,
+<p><b>Erin DiGiovanni </b></br>
+<b>Director of Dreams</b></p>
+<img src="https://dreamfactoryofbrooklyn2--dev.sandbox.file.force.com/servlet/servlet.ImageServer?id=015Em0000003RoT&oid=00DEm000000DdUz&lastMod=1684256102000"/>

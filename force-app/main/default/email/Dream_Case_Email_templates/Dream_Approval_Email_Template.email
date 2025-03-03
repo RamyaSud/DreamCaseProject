@@ -1,0 +1,15 @@
+Dear Parent/Guardian of {!Case.Child_Firstname__c} {!Case.Child_Last_Name__c} ,
+
+I hope this message finds you well. I am delighted to share some wonderful news with you – {!Case.Child_Firstname__c} {!Case.Child_Last_Name__c}’s dream has been approved by The Dream Factory of Brooklyn! This is a moment we have all been eagerly anticipating, and we couldn’t be more excited to take the next steps in making {!Case.Child_Firstname__c} {!Case.Child_Last_Name__c}’s dream come true.
+
+I would love the opportunity to personally share this fantastic news with {!Case.Child_Firstname__c} {!Case.Child_Last_Name__c} and celebrate this milestone together. Could you please let me know a time this week that works best for you for us to discuss the details and inform {!Case.Child_Firstname__c} {!Case.Child_Last_Name__c} about this exciting development? We want to ensure this moment is as special and memorable as possible.
+
+Thank you for your time, and we look forward to coordinating a convenient time to speak with you and {!Case.Child_Firstname__c} {!Case.Child_Last_Name__c}. If you have any questions or need additional information in the meantime, please feel free to reach out to me directly.
+
+
+Warm Regards,
+
+{!Case.OwnerFullName}
+{!Case.OwnerTitle}
+The Dream Factory of Brooklyn  
+ {!Case.OwnerEmail}

@@ -1,0 +1,19 @@
+Dear Parent/Guardian of {!Case.Child_First_Name__c} {!Case.Child_Last_Name__c} ,
+
+Thank you for your interest in the Dream Factory of Brooklyn. We have received your referral and it is currently under review. We are excited about the possibility of making a dream come true for another deserving child.
+
+Our dedicated team will carefully review all the information provided to ensure we have a thorough understanding of the child's needs and wishes. This process is essential to help us create a memorable and impactful experience.
+
+You can expect to hear from us shortly regarding the next steps. If we require any additional information, we will reach out to you directly. In the meantime, please feel free to contact us if you have any questions or need further assistance.
+
+Thank you once again for your support and for being a part of this wonderful journey with the Dream Factory of Brooklyn.
+
+Best regards,
+
+{!Case.OwnerFullName}
+
+
+Dream Factory of Brooklyn  
+
+
+(201) 534-3033
